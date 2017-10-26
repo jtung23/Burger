@@ -48,14 +48,14 @@ var orm = {
 
 	insertOne: function(table, cols, vals, callback) {
 		console.log('insertone func runs')
-		var query = "INSERT INTO" + table;
+		var query = "INSERT INTO " + table;
 		query += " (";
     query += cols.toString();
     query += ") ";
     query += "VALUES (";
     query += printQuestionMarks(vals.length);
     query += ") ";
-
+    
     connection.query(query, vals, function(err, result) {
     	if (err) throw err;
 

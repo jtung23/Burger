@@ -9,7 +9,6 @@ var burger = {
 	},
 
 	create: function(table, cols, vals, callback) {
-		var cols = 
 		orm.insertOne('burgers', cols, vals, function(res) {
 			callback(res);
 		});
