@@ -1,5 +1,24 @@
 <h1>Eat a Burger</h1>
 
+<h2>Your burgrs</h2>
+<ul>
+  {{#each burger}}
+    {{#unless devoured}}
+      {{burger}}
+    {{/unless}}
+  {{/each}}
+</ul>
+
+<h3>Devoured Burgers</h3>
+<ul>
+  {{#each burger}}
+    {{#if devoured}}
+      {{burger}}
+    {{/if}}
+  {{/each}}
+</ul>
+
+
 <h2>Add a burger</h2>
 <form class="create-form">
 

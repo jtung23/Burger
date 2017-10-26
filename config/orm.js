@@ -1,14 +1,4 @@
-var connection = require('./connection.js');
-
-function printQuestionMarks(num) {
-	var arr = [];
-
-	for (var i = 0; i < num; i++) {
-		arr.push('?');
-	}
-
-	return arr.toString();
-}
+var connection = require("../config/connection.js");
 
 function printQuestionMarks(num) {
   var arr = [];
@@ -51,6 +41,7 @@ var orm = {
 			if (err) {
 				throw err;
 			};
+
 			callback(results);
 		})
 	},
@@ -75,10 +66,10 @@ var orm = {
 		console.log('updateone func runs');
 		var query = "UPDATE " + table;
 
-    queryString += " SET ";
-    queryString += objToSql(objColVals);
-    queryString += " WHERE ";
-    queryString += condition;
+    query += " SET ";
+    query += objToSql(objColVals);
+    query += " WHERE ";
+    query += condition;
 
     connection.query(query, function(err, result) {
     	if (err) throw err;
