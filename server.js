@@ -4,7 +4,10 @@ var bodyParser = require('body-parser');
 
 var app = express();
 
-var port = process.env.PORT || 8080;
+var server = app.listen(process.env.PORT || 8080, function () {
+  var port = server.address().port;
+  console.log("Express is working on port " + port);
+});
 
 // Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static("public"));
