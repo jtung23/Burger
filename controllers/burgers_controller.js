@@ -28,4 +28,24 @@ router.post('/api/burgers', function(req, res) {
 	});
 });
 
+router.put('/api/burgers/:id', function(req, res) {
+	console.log(req);
+	var condition = "id = " + req.params.id;
+	burger.update(
+		{
+			devoured: req.body.devoured
+		},
+		condition,
+		function(result) {
+			res.json({ id:result.insertId})
+		}
+	);
+});
+
+// router.delete('/api/burgers/:id', function(req, res) {
+// 	var condition = "id = " + req.params.id;
+
+// 	burger.delete(condition, )
+// })
+
 module.exports = router;

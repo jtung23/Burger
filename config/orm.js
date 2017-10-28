@@ -55,7 +55,7 @@ var orm = {
     query += "VALUES (";
     query += printQuestionMarks(vals.length);
     query += ") ";
-    
+
     connection.query(query, vals, function(err, result) {
     	if (err) throw err;
 
@@ -70,6 +70,8 @@ var orm = {
     query += objToSql(objColVals);
     query += " WHERE ";
     query += condition;
+    console.log('CONDTITION', condition);
+    console.log('update put query', query);
 
     connection.query(query, function(err, result) {
     	if (err) throw err;
