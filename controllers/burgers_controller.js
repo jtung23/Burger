@@ -10,13 +10,11 @@ router.get("/", function(req, res) {
 		var hbsObject = {
 			burger: data
 		};
-		console.log(hbsObject);
 		res.render('index', hbsObject);
 	});
 });
 
 router.post('/api/burgers', function(req, res) {
-	console.log(req);
 	burger.create([
 		null
 	], [
@@ -29,7 +27,6 @@ router.post('/api/burgers', function(req, res) {
 });
 
 router.put('/api/burgers/:id', function(req, res) {
-	console.log(req);
 	var condition = "id = " + req.params.id;
 	burger.update(
 		{

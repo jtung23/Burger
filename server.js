@@ -4,10 +4,7 @@ var bodyParser = require('body-parser');
 
 var app = express();
 
-var server = app.listen(process.env.PORT || 8080, function () {
-  var port = server.address().port;
-  console.log("Express is working on port " + port);
-});
+var PORT = process.env.PORT || 8080;
 
 // Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static("public"));
@@ -25,6 +22,6 @@ var routes = require("./controllers/burgers_controller.js");
 
 app.use("/", routes);
 
-app.listen(port, function(err) {
-	if (err) throw err;
+app.listen(PORT, function(err) {
+  console.log("Started listening on port " + PORT);
 });
